@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gestion de Pacientes" />
+  <meta name="author" content="efernandez" />
+  <title>Resultados</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: #1a56a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    /* HEADER */
+    header {
+      background-color: black;
+      border-bottom: 1px solid #ddd;
+      padding: 14px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: white;
+    }
+    header span { font-size: 12px; color: #999; }
+
+    /* NAV */
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 0 36px;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li a:hover { color: #222; text-decoration: none; }
+    nav ul li a.activo { color: #222; border-bottom-color: #222; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      max-width: 1040px;
+      margin: 36px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* SECCIÓN */
+    section { margin-bottom: 44px; }
+    section h2 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* CARD PACIENTE MINI */
+    .paciente-mini {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-left: 3px solid #222;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .paciente-mini img {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      object-fit: cover;
+    }
+  
+    .paciente-mini p  { font-size: 12px; color: #888; }
+
+    /* TABLA GENERAL */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: 4px;
+    }
+
+    th {
+      background-color: #fafafa;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-weight: normal;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #333;
+      vertical-align: middle;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background-color: #fafafa; }
+
+  
+
+    /* VALORES LABORATORIO */
+    .val-alto   { color: #b91c1c; font-weight: bold; }
+    .val-normal { color: #2e7d32; }
+
+    /* BADGE */
+    .badge {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .b-verde   { background-color: #eef6ee; color: #2e7d32; border: 1px solid #c3e6c3; }
+    .b-naranja { background-color: #fef9ec; color: #b45309; border: 1px solid #f5d9a0; }
+    .b-gris    { background-color: #f0f0f0; color: #666;    border: 1px solid #ddd; }
+
+
+    /* MULTIMEDIA */
+    .media-bloque {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .media-bloque h3 {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 6px;
+      margin-top: 2px;
+    }
+
+    /* BOTONES */
+    .botones { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .btn {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primario   { background-color: #222; color: #fff; }
+    .btn-primario:hover   { background-color: #1a56a0; }
+    .btn-secundario { background-color: #fff; color: #333; border: 1px solid #ddd; }
+    .btn-secundario:hover { border-color: #888; }
+
+    /* FOOTER */
+    footer {
+      background-color: black;
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      color: white;
+    }
+   
+  </style>
+</head>
+<body>
+
+  <header>
+  
+    <h1>GESTION DE PACIENTES</h1>
+  
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="medicos.html">Médicos</a></li>
+      <li><a href="atencion.html">Atención</a></li>
+      <li><a href="resultados.html" class="activo">Resultados</a></li>
+      <li><a href="index.html">Cerrar sesión</a></li>
+      <li><a href="soporte.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- PACIENTE -->
+    <section>
+      <h2>Resultados del paciente</h2>
+      <div class="paciente-mini">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mario Quispe" />
+        <div>
+          <h3>Carlos Garcia</h3>
+          <p>HC-2024-0087 | 34 años | 20/04/2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA IMÁGENES RX -->
+    <section>
+      <h2>Imágenes radiológicas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Proyección</th>
+            <th>Equipo</th>
+            <th>Fecha</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img class="rx-thumb"
+                src="img/rayos-x.png" alt="RX" />
+            </td>
+            <td>RX Tórax</td>
+            <td>Anteroposterior</td>
+            <td>Siemens Ysio Max</td>
+            <td>20/04/2026</td>
+            <td>Campos pulmonares ventilados. Sin infiltrados visibles.</td>
+          </tr>
+          <tr>
+            <td>
+              <img class="rx-thumb"
+                src="img/rayos-x.png" alt="RX" />
+   
+            </td>
+            <td>RX Cráneo</td>
+            <td>Lateral</td>
+            <td>Philips DigitalDiagnost</td>
+            <td>20/04/2026</td>
+            <td>Bóveda craneal sin fracturas. Silla turca de aspecto normal.</td>
+          </tr>
+          <tr>
+            <td>
+              <img class="rx-thumb"
+                src="img/rayos-x.png" alt="RX" />
+   
+            </td>
+            <td>RX Columna Lumbar</td>
+            <td>AP</td>
+            <td>Siemens Ysio Max</td>
+            <td>20/04/2026</td>
+            <td>Leve rectificación de lordosis. Sin listesis. Espacios conservados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- TABLA LABORATORIO -->
+    <section>
+      <h2>Informe de laboratorio</h2>
+      <table>
+    
+        <thead>
+          <tr>
+            <th>Examen</th>
+            <th>Resultado</th>
+            <th>Valor de referencia</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hemoglobina</td>
+            <td>14.2 g/dL</td>
+            <td>13.0 – 17.0 g/dL</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>Hematocrito</td>
+            <td>42 %</td>
+            <td>38 – 52 %</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>Leucocitos</td>
+            <td>11,200 /μL</td>
+            <td>4,500 – 10,000 /μL</td>
+            <td class="val-alto">Elevado</td>
+          </tr>
+          <tr>
+            <td>Plaquetas</td>
+            <td>210,000 /μL</td>
+            <td>150,000 – 400,000 /μL</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>Glucosa</td>
+            <td>95 mg/dL</td>
+            <td>70 – 100 mg/dL</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>Creatinina</td>
+            <td>0.8 mg/dL</td>
+            <td>0.7 – 1.2 mg/dL</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>Colesterol total</td>
+            <td>218 mg/dL</td>
+            <td>&lt; 200 mg/dL</td>
+            <td class="val-alto">Elevado</td>
+          </tr>
+          <tr>
+            <td>Triglicéridos</td>
+            <td>88 mg/dL</td>
+            <td>&lt; 150 mg/dL</td>
+            <td class="val-normal">Normal</td>
+          </tr>
+          <tr>
+            <td>PCR (proteína C)</td>
+            <td>3.2 mg/L</td>
+            <td>&lt; 1.0 mg/L</td>
+            <td class="val-alto">Elevado</td>
+          </tr>
+        </tbody>
+      </table>
+     
+    </section>
+
+    <!-- MULTIMEDIA -->
+    <section>
+      <h2>Video | Ecografía abdominal</h2>
+
+      <div class="media-bloque">
+        <iframe width="800" height="700" src="https://www.youtube.com/embed/ssE4mF3S7-c" title="Así se hace una cirugía de corazón abierto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+
+      </div>
+
+      <div class="media-bloque">
+        <h3>Audio &middot; Referencia clínica</h3>
+        <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
+    </section>
+
+    <!-- HISTORIAL -->
+    <section>
+      <h2>Historial de exámenes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Examen</th>
+            <th>Área</th>
+            <th>Médico</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>20/04/2026</td>
+            <td>Hemograma + Perfil bioquímico</td>
+            <td>Laboratorio</td>
+            <td>Dr. García</td>
+            <td><span class="badge b-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>20/04/2026</td>
+            <td>Radiografía de tórax</td>
+            <td>Radiología</td>
+            <td>Dr. García</td>
+            <td><span class="badge b-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>20/04/2026</td>
+            <td>Ecografía abdominal</td>
+            <td>Imágenes</td>
+            <td>Dr. García</td>
+            <td><span class="badge b-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>12/01/2026</td>
+            <td>Glucosa en ayunas</td>
+            <td>Laboratorio</td>
+            <td>Dra. Martínez</td>
+            <td><span class="badge b-verde">Disponible</span></td>
+          </tr>
+          <tr>
+            <td>05/09/2025</td>
+            <td>Electrocardiograma</td>
+            <td>Cardiología</td>
+            <td>Dr. Rodríguez</td>
+            <td><span class="badge b-gris">Archivado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ACCIONES -->
+    <div class="botones">
+      <a href="atencion.html"><button class="btn btn-secundario">Volver a atención</button></a>
+    </div>
+    <br /><br />
+
+  </main>
+
+  <footer>
+    &copy; 2026 - Gestión de Pacientes. - efernandez
+  </footer>
+
+</body>
+</html>

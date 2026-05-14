@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gestion de Pacientes" />
+  <meta name="author" content="efernandez" />
+ <title>Atencion</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: #1a56a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    header {
+      background-color: black;
+      border-bottom: 1px solid #ddd;
+      padding: 14px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: white;
+    }
+    header span { font-size: 12px; color: #999; }
+
+    /* NAV */
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 0 36px;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li a:hover { color: #222; text-decoration: none; }
+    nav ul li a.activo { color: #222; border-bottom-color: #222; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      max-width: 1040px;
+      margin: 36px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* SECCIÓN */
+    section { margin-bottom: 40px; }
+    section h2 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* CARD PACIENTE */
+    .paciente-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-left: 3px solid #222;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .paciente-card img {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      object-fit: cover;
+    }
+    .pac-nombre { font-size: 16px; font-weight: bold; margin-bottom: 4px; }
+    .pac-datos  { font-size: 12px; color: #888; line-height: 1.8; }
+
+    .badge {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+    .b-naranja { background-color: #fef9ec; color: #b45309; border: 1px solid #f5d9a0; }
+    .b-verde   { background-color: #eef6ee; color: #2e7d32; border: 1px solid #c3e6c3; }
+
+    /* DOS COLUMNAS */
+    .dos-col { display: flex; gap: 18px; flex-wrap: wrap; }
+    .col { flex: 1; min-width: 280px; }
+
+    /* BLOQUE */
+    .bloque {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .bloque h3 {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      color: #222;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #1a56a0; }
+    select option { background: #fff; }
+    textarea { resize: vertical; min-height: 86px; }
+
+    .fila2 { display: flex; gap: 12px; }
+    .fila2 > div { flex: 1; }
+
+    /* AUDIO */
+    audio {
+      width: 100%;
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+    .nota-media {
+      font-size: 11px;
+      color: #bbb;
+      margin-bottom: 4px;
+    }
+
+    /* TABLA */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #fafafa;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-weight: normal;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #333;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background-color: #fafafa; }
+
+    /* BOTONES */
+    .botones { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .btn {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primario  { background-color: #222; color: #fff; }
+    .btn-primario:hover  { background-color: #1a56a0; }
+    .btn-secundario { background-color: #fff; color: #333; border: 1px solid #ddd; }
+    .btn-secundario:hover { border-color: #888; }
+    .btn-danger { background-color: #fff; color: #b91c1c; border: 1px solid #f0c0c0; }
+    .btn-danger:hover { background-color: #fff5f5; }
+
+    /* FOOTER */
+    footer {
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      color: #bbb;
+    }
+    footer a { color: #bbb; margin: 0 8px; }
+    footer a:hover { color: #222; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+  
+    <h1>GESTION DE PACIENTES</h1>
+  
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="medicos.html">Médicos</a></li>
+      <li><a href="atencion.html" class="activo">Atención</a></li>
+      <li><a href="resultados.html">Resultados</a></li>
+      <li><a href="index.html">Cerrar sesión</a></li>
+      <li><a href="soporte.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Paciente en atención</h2>
+      <div class="paciente-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="img" />
+        <div>
+          <div class="pac-nombre">Carlos García</div>
+          <div class="pac-datos">
+            DNI: 45678912 | 34 años | Masculino |
+            Tipo de sangre: O+ | Seguro: SIS | HC-2024-0087
+          </div>
+          <span class="badge b-naranja">En atención</span>
+        </div>
+      </div>
+    </section>
+
+     <div class="botones">
+      <button class="btn btn-primario">Guardar atención</button>
+      <a href="resultados.html"><button class="btn btn-secundario">Ver resultados</button></a>
+      <a href="medicos.html"><button class="btn btn-secundario">Volver a Listado</button></a>
+    </div>
+    <br /><br />
+
+    <div class="dos-col">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="col">
+
+        <div class="bloque">
+          <h3>Motivo de consulta</h3>
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" value="2026-04-20" />
+          <label for="motivo">Tipo de consulta</label>
+          <select id="motivo">
+            <option value="" disabled selected>Seleccione</option>
+            <option>Control general</option>
+            <option>Emergencia</option>
+            <option>Seguimiento</option>
+            <option>Otro</option>
+          </select>
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere accusantium perferendis dolores deleniti minima! Non ducimus consequuntur aut assumenda porro consequatur adipisci harum fugiat consectetur veniam sint, nulla velit dolorum?</textarea>
+        </div>
+
+        <div class="bloque">
+          <h3>Signos vitales</h3>
+          <div class="fila2">
+            <div>
+              <label>Presión arterial</label>
+              <input type="text" value="118/76 mmHg" />
+            </div>
+            <div>
+              <label>Temperatura</label>
+              <input type="text" value="36.8 °C" />
+            </div>
+          </div>
+          <div class="fila2">
+            <div>
+              <label>Peso (kg)</label>
+              <input type="number" value="74" />
+            </div>
+            <div>
+              <label>Talla (cm)</label>
+              <input type="number" value="172" />
+            </div>
+          </div>
+          <div class="fila2">
+            <div>
+              <label>Frec. cardíaca</label>
+              <input type="text" value="82 bpm" />
+            </div>
+            <div>
+              <label>Frec. respiratoria</label>
+              <input type="text" value="16 rpm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bloque">
+          <h3>Audio de la consulta</h3>
+          <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="col">
+
+        <div class="bloque">
+          <h3>Diagnóstico y tratamiento</h3>
+          <label>Diagnóstico CIE-10</label>
+          <input type="text" value="G43 – Migraña sin aura" />
+          <label>Tipo de diagnóstico</label>
+          <select>
+            <option selected>Definitivo</option>
+            <option>Presuntivo</option>
+            <option>Descartado</option>
+          </select>
+          <label>Tratamiento</label>
+          <textarea>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae eum officia fugiat maiores suscipit, praesentium non corrupti maxime accusamus tenetur fuga, a dolore odio ipsa autem numquam ad. Dicta, expedita.</textarea>
+          <label>Observaciones</label>
+          <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis veritatis magni cum suscipit ad maxime soluta obcaecati placeat nam asperiores accusantium reiciendis aperiam architecto distinctio ducimus ipsum illum, perspiciatis dicta.</textarea>
+        </div>
+
+        <div class="bloque">
+          <h3>Exámenes solicitados</h3>
+          <label>Tipo de examen</label>
+          <select>
+            <option value="" disabled selected>Seleccione</option>
+            <option>Hemograma completo</option>
+            <option>Radiografía de cráneo</option>
+            <option>Ecografía abdominal</option>
+            <option>Glucosa en sangre</option>
+            <option>Otro</option>
+          </select>
+          <label>Indicaciones para laboratorio</label>
+          <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis similique voluptatum rerum sit exercitationem voluptatibus nihil dolore sequi iusto molestiae, earum molestias repellat expedita ducimus magni impedit fugiat commodi.</textarea>
+         
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ANTECEDENTES -->
+    <section>
+      <h2>Antecedentes clínicos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Descripción</th>
+            <th>Año</th>
+            <th>Observación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Patológico</td>
+            <td>Hipertensión arterial</td>
+            <td>2019</td>
+            <td>Controlada con enalapril 5mg</td>
+          </tr>
+          <tr>
+            <td>Quirúrgico</td>
+            <td>Apendicectomía</td>
+            <td>2015</td>
+            <td>Sin complicaciones post-op</td>
+          </tr>
+          <tr>
+            <td>Alérgico</td>
+            <td>Penicilina</td>
+            <td>2010</td>
+            <td>Urticaria generalizada</td>
+          </tr>
+          <tr>
+            <td>Familiar</td>
+            <td>Diabetes tipo 2 (padre)</td>
+            <td>—</td>
+            <td>Factor de riesgo a vigilar</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+   
+
+
+  </main>
+
+  <footer>
+    <a href="medicos.html">Médicos</a>
+    <a href="atencion.html">Atención</a>
+    <a href="resultados.html">Resultados</a>
+    <a href="index.html">Salir</a>
+    <br /><br />
+    &copy; 2026 MedCare &nbsp;&middot;&nbsp; Sistema de Gestión Médica
+  </footer>
+
+</body>
+</html>
