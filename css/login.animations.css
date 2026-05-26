@@ -1,0 +1,34 @@
+/* ================================================
+   login.animations.css — Animaciones de index.html
+   ================================================ */
+
+/* caja entra desde arriba con rebote suave */
+.login-box {
+  animation: fadeInDown 0.9s cubic-bezier(.22,1,.36,1) 0.1s both;
+}
+
+/* logo aparece con fade tras la caja */
+.login-logo {
+  animation: fadeIn 0.9s ease 0.3s both;
+}
+
+/* título y subtítulo suben desde abajo */
+.login-title { animation: fadeInOnly 0.8s ease 0.25s both; }
+.login-sub   { animation: fadeInOnly 0.8s ease 0.32s both; }
+
+/* campos aparecen escalonados */
+.f-group:nth-child(1) { animation: fadeInOnly 0.8s ease 0.38s both; }
+.f-group:nth-child(2) { animation: fadeInOnly 0.8s ease 0.44s both; }
+.f-group:nth-child(3) { animation: fadeInOnly 0.8s ease 0.50s both; }
+
+/* botón aparece último y pulsa suave */
+.btn-login {
+  animation: fadeInOnly 0.8s ease 0.56s both, pulseBtn 2.5s ease 1s infinite;
+}
+
+/* separador y pie aparecen al final */
+.login-divider { animation: fadeIn 0.8s ease 0.62s both; }
+.login-footer  { animation: fadeIn 0.8s ease 0.68s both; }
+
+/* fondo decorativo aparece lento */
+.login-bg { animation: fadeIn 1s ease both; }

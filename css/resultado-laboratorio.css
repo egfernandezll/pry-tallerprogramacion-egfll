@@ -1,0 +1,112 @@
+/* ================================================
+   resultado-laboratorio.css
+   Incluye estilo del bloque de datos del paciente
+   ================================================ */
+
+/* ================================================
+   BLOQUE PACIENTE — foto rectangular + datos
+   ================================================ */
+.pac-header {
+  background-color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.9);
+  border-left: 5px solid #198754;  /* acento success izquierdo */
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 2px 12px rgba(13,110,253,0.06);
+}
+.pac-header img {
+  width: 80px; height: 80px;       /* foto más grande */
+  border-radius: 14px;             /* rectangular redondeada */
+  object-fit: cover;
+  border: 2px solid rgba(13,110,253,0.15);
+  flex-shrink: 0;
+}
+.pac-nombre { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.pac-meta   { font-size: 14px; color: #6c757d; line-height: 1.7; }
+
+/* info mini del estudio */
+.info-mini {
+  background-color: #f8faff;
+  border: 1px solid rgba(13,110,253,0.1);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.info-row { display: flex; flex-direction: column; }
+.info-label { font-size: 10px; font-weight: 600; color: #adb5bd; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.info-valor { font-size: 14px; font-weight: 500; color: #1a1a2e; }
+
+/* ================================================
+   ALERTAS
+   ================================================ */
+.alertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.alerta-chip {
+  background-color: rgba(220,53,69,0.06);
+  border: 1px solid rgba(220,53,69,0.25);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.alerta-nombre { font-size: 11px; font-weight: 600; color: #6c757d; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+.alerta-valor  { font-size: 18px; font-weight: 700; color: #dc3545; }
+.alerta-ref    { font-size: 11px; color: #adb5bd; margin-top: 3px; }
+
+/* ================================================
+   TABLA LAB CON BARRA
+   ================================================ */
+.lab-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f4f8;
+}
+.lab-row:last-of-type { border-bottom: none; }
+.lab-nombre { font-size: 13px; font-weight: 500; color: #1a1a2e; width: 170px; flex-shrink: 0; }
+.lab-bar-wrap { flex: 1; background-color: #f0f4f8; border-radius: 99px; height: 7px; overflow: hidden; }
+.lab-bar { height: 7px; border-radius: 99px; animation: growBar 0.8s ease both; }
+.bar-ok   { background-color: #198754; }
+.bar-alto { background-color: #dc3545; }
+.lab-valor { font-size: 13px; font-weight: 700; width: 100px; text-align: right; flex-shrink: 0; }
+.lab-ref   { font-size: 11px; color: #adb5bd; width: 115px; text-align: right; flex-shrink: 0; }
+
+/* observaciones */
+.obs-box {
+  background-color: #f8faff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #2d3748;
+  line-height: 1.7;
+  border: 1px solid rgba(13,110,253,0.08);
+}
+
+/* firma */
+.firma { display: flex; align-items: center; gap: 14px; }
+.firma-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(13,110,253,0.15); }
+.firma-nombre { font-size: 15px; font-weight: 600; color: #1a1a2e; }
+.firma-esp    { font-size: 12px; color: #6c757d; }
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 768px) {
+  .alertas-grid { grid-template-columns: 1fr 1fr; }
+  .lab-nombre { width: 120px; }
+  .lab-ref    { display: none; }
+  .pac-header img { width: 60px; height: 60px; }
+}
+@media (max-width: 480px) {
+  .alertas-grid { grid-template-columns: 1fr; }
+  .lab-bar-wrap { display: none; }
+  .pac-header { flex-direction: column; text-align: center; }
+}

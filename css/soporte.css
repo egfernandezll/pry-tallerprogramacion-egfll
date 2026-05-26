@@ -1,0 +1,122 @@
+/* ================================================
+   soporte.css — Estilos específicos de soporte.html
+   ================================================ */
+
+/* main sin restricción de ancho — ocupa todo */
+main {
+  flex: 1;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* layout dos columnas: imagen + formulario */
+.soporte-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 120px); /* ocupa el alto disponible */
+}
+
+/* panel izquierdo oscuro con gradiente */
+.soporte-left {
+  background: linear-gradient(145deg, #212529 0%, #1a3a6e 100%);
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ilustración flotante */
+.soporte-illus {
+  font-size: 72px;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+}
+
+.soporte-left-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4;
+}
+.soporte-left-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+/* badges de categorías sobre fondo oscuro */
+.s-badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+.s-badge  {
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  border: 1px solid;
+  font-weight: 500;
+}
+.s-primary   { background-color: rgba(13,110,253,0.15);  color: #7ab3fd; border-color: rgba(13,110,253,0.3); }
+.s-success   { background-color: rgba(25,135,84,0.15);   color: #75c9a0; border-color: rgba(25,135,84,0.3); }
+.s-warning   { background-color: rgba(255,193,7,0.15);   color: #ffc107; border-color: rgba(255,193,7,0.3); }
+.s-info      { background-color: rgba(13,202,240,0.15);  color: #0dcaf0; border-color: rgba(13,202,240,0.3); }
+
+/* panel derecho blanco con formulario */
+.soporte-right {
+  background-color: #ffffff;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.s-title { font-size: 20px; font-weight: 600; color: #212529; margin-bottom: 4px; }
+.s-sub   { font-size: 12px; color: #adb5bd; margin-bottom: 24px; line-height: 1.6; }
+
+/* grupos de campo */
+.s-group { margin-bottom: 14px; }
+.s-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* botón enviar — primario Bootstrap */
+.btn-soporte {
+  width: 100%;
+  background-color: #0d6efd;        /* primary */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  box-shadow: 0 3px 10px rgba(13,110,253,0.35);
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+.btn-soporte:hover { background-color: #0b5ed7; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(13,110,253,0.4); }
+.btn-soporte:active { transform: translateY(1px); }
+
+/* ================================================
+   RESPONSIVE soporte
+   ================================================ */
+@media (max-width: 768px) {
+  .soporte-body { grid-template-columns: 1fr; }  /* apila los paneles */
+  .soporte-left { padding: 36px 24px; min-height: 260px; }
+  .soporte-right { padding: 32px 24px; }
+}

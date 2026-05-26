@@ -1,0 +1,161 @@
+/* ================================================
+   medicos.css — Estilos específicos de medicos.html
+   ================================================ */
+
+/* ================================================
+   STATS — zoom suave al hover
+   ================================================ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+  overflow: visible;               /* permite que el scale no se recorte */
+}
+.stat-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 20px;
+  padding: 28px 26px;
+  border-top: 3px solid #0d6efd;
+  box-shadow: 0 2px 12px rgba(13,110,253,0.07);
+  cursor: pointer;
+  /* solo scale — efecto zoom puro sin desplazamiento */
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1),
+              box-shadow 0.35s ease,
+              border-top-color 0.35s ease;
+}
+.stat-card:hover {
+  transform: scale(1.07);            /* zoom visible — agrandamiento físico */
+  box-shadow: 0 8px 24px rgba(13,110,253,0.14);
+  border-top-color: #198754;
+  z-index: 10;
+}
+.stat-card .stat-ico {
+  width: 42px; height: 42px;
+  stroke: #0d6efd;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 14px;
+  transition: stroke 0.25s ease;
+}
+.stat-card:hover .stat-ico { stroke: #198754; }
+.stat-card .numero  { font-size: 44px; font-weight: 700; color: #1a1a2e; line-height: 1; margin-bottom: 8px; }
+.stat-card .etiqueta { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #6c757d; }
+
+/* ================================================
+   SALA DE ESPERA — elevación al hover
+   ================================================ */
+.sala-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+  overflow: visible;               /* permite elevación sin recorte */
+}
+
+.pac-card {
+  background-color: #ffffff;
+  border: 1.5px solid rgba(255,255,255,0.9);
+  border-radius: 20px;
+  padding: 18px 16px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(13,110,253,0.05);
+  /* elevación al hover */
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.25s ease;
+}
+.pac-card:hover {
+  transform: translateY(-12px);      /* se eleva físicamente — efecto elevar */
+  box-shadow: 0 18px 36px rgba(13,110,253,0.16);
+  z-index: 10;
+}
+
+/* estados */
+.pac-card.inactivo      { opacity: 0.45; }
+.pac-card.inactivo-rojo { opacity: 0.6; border-color: rgba(220,53,69,0.35); }
+.pac-card.activo-curso  { border-left: 4px solid #198754; }
+.pac-card.atendido      { border-left: 4px solid #198754; }
+
+.pac-avatar { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(13,110,253,0.15); }
+.pac-avatar.gris { filter: grayscale(1); }
+.pac-nombre  { font-size: 14px; font-weight: 600; color: #1a1a2e; text-align: center; line-height: 1.3; }
+.pac-meta    { font-size: 12px; color: #6c757d; text-align: center; }
+.pac-hora    { font-size: 12px; color: #6c757d; display: flex; align-items: center; gap: 5px; }
+
+.pac-divider  { border: none; border-top: 1px solid #f0f4f8; width: 100%; margin: 2px 0; }
+.pac-acciones { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+
+/* ================================================
+   BOTONES DE CARDS — estilo consistente
+   Todos pill redondeado, coherentes entre sí
+   ================================================ */
+
+/* INICIAR ATENCIÓN — verde sólido (referencia) */
+.btn-iniciar {
+  width: 100%; background-color: #198754; color: #ffffff;
+  border: none; border-radius: 99px; padding: 9px 0;
+  font-family: 'DM Sans', Arial, sans-serif; font-size: 11px;
+  font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  box-shadow: 0 3px 10px rgba(25,135,84,0.35);
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+.btn-iniciar svg { width: 14px; height: 14px; stroke: #ffffff; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.btn-iniciar:hover { background-color: #157347; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(25,135,84,0.4); }
+
+/* VER ATENCIÓN — azul outline coherente */
+.btn-ver-atencion {
+  width: 100%; background: none; color: #0d6efd;
+  border: 1.5px solid #0d6efd; border-radius: 99px; padding: 9px 0;
+  font-family: 'DM Sans', Arial, sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-ver-atencion svg { width: 14px; height: 14px; stroke: #0d6efd; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s ease; }
+.btn-ver-atencion:hover { background-color: #0d6efd; color: #ffffff; }
+.btn-ver-atencion:hover svg { stroke: #ffffff; }
+
+/* LLAMAR — info outline */
+.btn-llamar {
+  width: 100%; background: none; color: #087990;
+  border: 1.5px solid #0dcaf0; border-radius: 99px; padding: 9px 0;
+  font-family: 'DM Sans', Arial, sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: background-color 0.2s ease;
+}
+.btn-llamar svg { width: 14px; height: 14px; stroke: #087990; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn-llamar:hover { background-color: rgba(13,202,240,0.1); }
+
+/* VER HISTORIAL — success outline */
+.btn-historial {
+  width: 100%; background-color: rgba(25,135,84,0.08); color: #198754;
+  border: 1.5px solid rgba(25,135,84,0.35); border-radius: 99px; padding: 9px 0;
+  font-family: 'DM Sans', Arial, sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: background-color 0.2s ease;
+}
+.btn-historial svg { width: 14px; height: 14px; stroke: #198754; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn-historial:hover { background-color: rgba(25,135,84,0.16); }
+
+
+/* ================================================
+   RESPONSIVE medicos
+   ================================================ */
+@media (max-width: 768px) {
+  .sala-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .sala-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}

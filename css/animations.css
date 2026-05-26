@@ -1,0 +1,122 @@
+/* ================================================
+   animations.css — Keyframes compartidos
+   Usados en todas las páginas
+   ================================================ */
+
+/* entrada desde arriba */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* entrada desde abajo */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* aparición simple */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* entrada desde la izquierda */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* entrada desde la derecha */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* flotación suave — loop infinito */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* rotación — spinner de carga */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* pulso de sombra — botón principal */
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 4px 14px rgba(13,110,253,0.35); }
+  50%       { box-shadow: 0 4px 22px rgba(13,110,253,0.55); }
+}
+
+/* pulso borde danger — alergias */
+@keyframes pulseDanger {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,53,69,0.2); }
+  50%       { box-shadow: 0 0 0 5px rgba(220,53,69,0.0); }
+}
+
+/* escala pop — badges y chips al cargar */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* barra de progreso lab — crece de izquierda */
+@keyframes growBar {
+  from { width: 0%; }
+}
+
+/* ================================================
+   CLASES UTILITARIAS DE ANIMACIÓN
+   Aplica la animación con delay escalonado
+   ================================================ */
+
+/* header — siempre entra desde arriba */
+header { animation: fadeInDown 0.8s ease both; }
+
+/* nav — aparece tras el header */
+nav    { animation: fadeIn 0.8s ease 0.2s both; }
+
+/* footer — aparece al final */
+footer { animation: fadeIn 0.8s ease 0.35s both; }
+
+/* hover de cards definido por página en medicos.css */
+
+/* spinner CSS puro */
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;             /* gira continuo */
+  flex-shrink: 0;
+}
+
+/* transición suave de tabla rows */
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+/* shake al hacer click en cerrar sesión */
+@keyframes shakeLogout {
+  0%   { transform: translateX(0) rotate(0deg); }
+  15%  { transform: translateX(-6px) rotate(-2deg); }
+  30%  { transform: translateX(6px) rotate(2deg); }
+  45%  { transform: translateX(-4px) rotate(-1deg); }
+  60%  { transform: translateX(4px) rotate(1deg); }
+  75%  { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* zoom suave stat-cards */
+@keyframes zoomCard {
+  from { transform: scale(1); }
+  to   { transform: scale(1.035); }
+}
+
+/* fadeInOnly — solo opacidad, sin transform, para no bloquear hover */
+@keyframes fadeInOnly {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

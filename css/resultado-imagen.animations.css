@@ -1,0 +1,38 @@
+/* ================================================
+   resultado-imagen.animations.css
+   Animaciones de resultado-imagen.html
+   ================================================ */
+
+/* paciente entra desde arriba */
+.pac-header { animation: fadeInDown 0.8s ease 0.1s both; }
+.info-mini  { animation: slideInRight 0.8s ease 0.2s both; }
+
+/* visor aparece con fade — efecto encendido pantalla */
+.visor { animation: fadeIn 0.7s ease 0.25s both; }
+
+/* miniaturas entran escalonadas desde la derecha */
+.mini:nth-child(2) { animation: slideInRight 0.7s ease 0.3s both; }
+.mini:nth-child(3) { animation: slideInRight 0.7s ease 0.38s both; }
+.mini:nth-child(4) { animation: slideInRight 0.7s ease 0.46s both; }
+
+/* bloques de info técnica y hallazgos */
+.bloque-tech     { animation: fadeInOnly 0.8s ease 0.4s both; }
+.bloque-hallazgos { animation: fadeInOnly 0.8s ease 0.48s both; }
+
+/* hallazgos aparecen escalonados */
+.hallazgo-item:nth-child(1) { animation: slideInLeft 0.7s ease 0.5s both; }
+.hallazgo-item:nth-child(2) { animation: slideInLeft 0.7s ease 0.58s both; }
+.hallazgo-item:nth-child(3) { animation: slideInLeft 0.7s ease 0.66s both; }
+.hallazgo-item:nth-child(4) { animation: slideInLeft 0.7s ease 0.74s both; }
+
+/* conclusión y firma al final */
+.bloque-conclusion { animation: fadeInOnly 0.8s ease 0.7s both; }
+.bloque-firma      { animation: fadeInOnly 0.8s ease 0.8s both; }
+
+/* chips técnicos hacen pop */
+.tech-chip:nth-child(1) { animation: popIn 0.6s ease 0.45s both; }
+.tech-chip:nth-child(2) { animation: popIn 0.6s ease 0.52s both; }
+.tech-chip:nth-child(3) { animation: popIn 0.6s ease 0.59s both; }
+.tech-chip:nth-child(4) { animation: popIn 0.6s ease 0.66s both; }
+.tech-chip:nth-child(5) { animation: popIn 0.6s ease 0.73s both; }
+.tech-chip:nth-child(6) { animation: popIn 0.6s ease 0.80s both; }

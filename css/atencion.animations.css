@@ -1,0 +1,36 @@
+/* ================================================
+   atencion.animations.css — Animaciones de atencion.html
+   ================================================ */
+
+/* fila 1 — paciente entra desde arriba */
+.pac-header { animation: fadeInDown 0.8s ease 0.1s both; }
+.visita-mini { animation: slideInRight 0.8s ease 0.2s both; }
+
+/* botones de acción aparecen tras el paciente */
+.btn-group { animation: fadeInOnly 0.7s ease 0.25s both; }
+
+/* zonas entran escalonadas desde abajo */
+.zona-1 { animation: fadeInOnly 0.8s ease 0.3s both; }
+.zona-2 { animation: fadeInOnly 0.8s ease 0.38s both; }
+.zona-3 { animation: fadeInOnly 0.8s ease 0.46s both; }
+.zona-4 { animation: fadeInOnly 0.8s ease 0.54s both; }
+.zona-5 { animation: fadeInOnly 0.8s ease 0.62s both; }
+.zona-6 { animation: fadeInOnly 0.8s ease 0.70s both; }
+.zona-7 { animation: fadeInOnly 0.8s ease 0.78s both; }
+.zona-8 { animation: fadeInOnly 0.8s ease 0.86s both; }
+.zona-9 { animation: fadeInOnly 0.8s ease 0.94s both; }
+
+/* chips de alergias pulsan en danger — alerta visual */
+.chip.alerta {
+  animation: pulseDanger 3s ease infinite;
+}
+
+/* res-cards hacen pop al entrar */
+.res-card:nth-child(1) { animation: popIn 0.7s ease 0.9s both; }
+.res-card:nth-child(2) { animation: popIn 0.7s ease 0.98s both; }
+.res-card:nth-child(3) { animation: popIn 0.7s ease 1.06s both; }
+.res-card:nth-child(4) { animation: popIn 0.7s ease 1.14s both; }
+
+/* receta items aparecen desde izquierda */
+.receta-item:nth-child(1) { animation: slideInLeft 0.7s ease 0.65s both; }
+.receta-item:nth-child(2) { animation: slideInLeft 0.7s ease 0.73s both; }

@@ -1,0 +1,35 @@
+/* ================================================
+   resultado-laboratorio.animations.css
+   Animaciones de resultado-laboratorio.html
+   ================================================ */
+
+/* paciente entra desde arriba */
+.pac-header { animation: fadeInDown 0.8s ease 0.1s both; }
+.info-mini  { animation: slideInRight 0.8s ease 0.2s both; }
+
+/* chips de alerta hacen pop escalonados */
+.alerta-chip:nth-child(1) { animation: popIn 0.7s ease 0.3s both; }
+.alerta-chip:nth-child(2) { animation: popIn 0.7s ease 0.38s both; }
+.alerta-chip:nth-child(3) { animation: popIn 0.7s ease 0.46s both; }
+.alerta-chip:nth-child(4) { animation: popIn 0.7s ease 0.54s both; }
+
+/* tabla lab entra desde abajo */
+.bloque-lab { animation: fadeInOnly 0.8s ease 0.35s both; }
+
+/* cada barra crece con delay por fila */
+.lab-row:nth-child(1)  .lab-bar { animation-delay: 0.4s; }
+.lab-row:nth-child(2)  .lab-bar { animation-delay: 0.48s; }
+.lab-row:nth-child(3)  .lab-bar { animation-delay: 0.56s; }
+.lab-row:nth-child(4)  .lab-bar { animation-delay: 0.64s; }
+.lab-row:nth-child(5)  .lab-bar { animation-delay: 0.72s; }
+.lab-row:nth-child(6)  .lab-bar { animation-delay: 0.80s; }
+.lab-row:nth-child(7)  .lab-bar { animation-delay: 0.88s; }
+.lab-row:nth-child(8)  .lab-bar { animation-delay: 0.96s; }
+.lab-row:nth-child(9)  .lab-bar { animation-delay: 1.04s; }
+
+/* observaciones y firma aparecen al final */
+.bloque-obs   { animation: fadeInOnly 0.8s ease 0.8s both; }
+.bloque-firma { animation: fadeInOnly 0.8s ease 0.9s both; }
+
+/* chips de alerta pulsan en danger */
+.alerta-chip { animation: pulseDanger 3.5s ease infinite; }
