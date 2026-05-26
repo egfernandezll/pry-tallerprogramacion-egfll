@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PRY-EGFLL — Atención médica" />
+  <meta name="author" content="efernandez" />
+  <title>PRY-EGFLL — Atención</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/atencion.css" />
+  <link rel="stylesheet" href="css/atencion.animations.css" />
+</head>
+<body>
+
+  <header>
+    <h1>PRY-EGFLL</h1>
+    <div class="header-user">
+      <img class="header-avatar" src="https://picsum.photos/300/300?1" alt="Usuario" />
+      <span class="header-name">Dr. Usuario</span>
+      <a href="index.html">
+        <button class="btn-logout" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Cerrar sesión</span>
+        </button>
+      </a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="medicos.html">Médicos</a></li>
+      <li><a href="atencion.html" class="activo">Atención</a></li>
+      <li><a href="soporte.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- acciones principales -->
+    <div class="btn-group">
+      <button class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Guardar atención
+      </button>
+      <a href="medicos.html">
+        <button class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Volver
+        </button>
+      </a>
+    </div>
+
+    <!-- FILA 1 — paciente + última visita -->
+    <div class="g-pac zona-1" style="gap:12px; margin-bottom:12px;">
+      <div class="pac-header">
+        <img src="https://picsum.photos/300/300?1" alt="Carlos García" />
+        <div>
+          <div class="pac-nombre">Carlos García</div>
+          <div class="pac-meta">DNI: 45678912 · 34 años · Masculino · O+ · SIS · HC-2024-0087</div>
+          <span class="badge b-warning" style="margin-top:6px">En atención</span>
+        </div>
+      </div>
+      <div class="visita-mini">
+        <div class="bloque-titulo">
+          <div class="bloque-titulo-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Última visita
+          </div>
+        </div>
+        <div class="visita-fecha">12/01/2026 · Dr. García</div>
+        <div class="visita-motivo">Control de hipertensión</div>
+        <div class="visita-det">PA: 130/85 · Ajuste enalapril 5mg</div>
+      </div>
+    </div>
+
+    <!-- FILA 2 — signos vitales + alergias -->
+    <div class="g-half zona-2" style="margin-bottom:12px;">
+      <div class="bloque">
+        <div class="bloque-titulo">
+          <div class="bloque-titulo-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Signos vitales
+          </div>
+        </div>
+        <div class="chips-grid">
+          <div class="chip"><div class="chip-label">Presión arterial</div><div class="chip-valor">118/76 mmHg</div></div>
+          <div class="chip"><div class="chip-label">Temperatura</div><div class="chip-valor">36.8 °C</div></div>
+          <div class="chip"><div class="chip-label">Peso</div><div class="chip-valor">74 kg</div></div>
+          <div class="chip"><div class="chip-label">Talla</div><div class="chip-valor">172 cm</div></div>
+          <div class="chip"><div class="chip-label">Frec. cardíaca</div><div class="chip-valor">82 bpm</div></div>
+          <div class="chip"><div class="chip-label">Frec. resp.</div><div class="chip-valor">16 rpm</div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-titulo">
+          <div class="bloque-titulo-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Alergias conocidas
+          </div>
+        </div>
+        <div class="chips-grid">
+          <div class="chip alerta"><div class="chip-label">Medicamento</div><div class="chip-valor danger">Penicilina</div></div>
+          <div class="chip alerta"><div class="chip-label">Medicamento</div><div class="chip-valor danger">Aspirina</div></div>
+          <div class="chip alerta"><div class="chip-label">Alimento</div><div class="chip-valor danger">Mariscos</div></div>
+          <div class="chip"><div class="chip-label">Alimento</div><div class="chip-valor">Sin registro</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILA 3 — antecedentes + diagnóstico -->
+    <div class="g-half zona-3" style="margin-bottom:12px;">
+      <div class="bloque">
+        <div class="bloque-titulo">
+          <div class="bloque-titulo-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Antecedentes
+          </div>
+          <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+        </div>
+        <div class="ante-item"><div><div class="ante-tipo">Patológico</div><div class="ante-desc">Hipertensión arterial · 2019</div></div><span class="badge b-warning">Activo</span></div>
+        <div class="ante-item"><div><div class="ante-tipo">Quirúrgico</div><div class="ante-desc">Apendicectomía · 2015</div></div><span class="badge b-success">Resuelto</span></div>
+        <div class="ante-item"><div><div class="ante-tipo">Familiar</div><div class="ante-desc">Diabetes tipo 2 (padre)</div></div><span class="badge b-warning">Vigilar</span></div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-titulo">
+          <div class="bloque-titulo-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Diagnóstico
+          </div>
+          <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+        </div>
+        <label class="f-label">CIE-10</label>
+        <input type="text" value="G43 – Migraña sin aura" />
+        <label class="f-label">Tipo</label>
+        <select><option>Definitivo</option><option>Presuntivo</option><option>Descartado</option></select>
+        <label class="f-label">Observaciones</label>
+        <textarea>Reposo relativo, evitar pantallas y exposición a luz intensa.</textarea>
+      </div>
+    </div>
+
+    <!-- FILA 4 — motivo de consulta + audio -->
+    <div class="bloque zona-4">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Motivo de consulta
+        </div>
+      </div>
+      <label class="f-label">Fecha</label>
+      <input type="date" value="2026-04-20" />
+      <label class="f-label">Tipo de consulta</label>
+      <select><option>Control general</option><option>Emergencia</option><option>Seguimiento</option></select>
+      <label class="f-label">Descripción detallada</label>
+      <textarea style="min-height:110px;">Paciente refiere dolor de cabeza recurrente desde hace 3 semanas, de intensidad moderada, localizado en región frontal y temporal bilateral. No asociado a náuseas ni vómitos. Empeora con exposición a luz intensa y ruido. Los episodios duran entre 4 y 6 horas y ceden parcialmente con ibuprofeno.</textarea>
+
+      <!-- audio de la consulta -->
+      <label class="f-label">Audio resumen de consulta</label>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+
+    <!-- FILA 5 — recetas -->
+    <div class="bloque zona-5">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          Recetas médicas
+        </div>
+        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+      </div>
+      <div class="receta-item">
+        <div class="receta-ico">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <div style="flex:1"><div class="receta-nombre">Ibuprofeno 400mg</div><div class="receta-dosis">1 tableta cada 8h · 5 días · Con alimentos</div></div>
+        <span class="badge b-success">Activo</span>
+      </div>
+      <div class="receta-item">
+        <div class="receta-ico">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <div style="flex:1"><div class="receta-nombre">Enalapril 5mg</div><div class="receta-dosis">1 tableta cada 24h · Continuo · En ayunas</div></div>
+        <span class="badge b-success">Activo</span>
+      </div>
+    </div>
+
+    <!-- FILA 6 — laboratorio -->
+    <div class="bloque zona-6">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l2 7H5l7 11 7-11h-6l2-7H9z"/></svg>
+          Laboratorio - Solicitado
+        </div>
+        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+      </div>
+      <div class="exam-row"><div><div class="exam-nombre">Hemograma completo</div><div class="exam-sub">En ayunas · Lab. central</div></div><span class="val-alto">Leucocitos elevados</span></div>
+      <div class="exam-row"><div><div class="exam-nombre">Glucosa en sangre</div><div class="exam-sub">95 mg/dL · Ref: 70–100</div></div><span class="val-ok">Normal</span></div>
+      <div class="exam-row"><div><div class="exam-nombre">Colesterol total</div><div class="exam-sub">218 mg/dL · Ref: &lt;200</div></div><span class="val-alto">Elevado</span></div>
+      <div class="exam-row"><div><div class="exam-nombre">PCR proteína C</div><div class="exam-sub">3.2 mg/L · Ref: &lt;1.0</div></div><span class="val-alto">Elevado</span></div>
+    </div>
+
+    <!-- FILA 7 — imágenes -->
+    <div class="bloque zona-7">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Imágenes radiológicas - Solicitadas
+        </div>
+        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+      </div>
+      <div class="rx-row">
+        <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 4-2 7-5 9H7c-3-2-5-5-5-9A10 10 0 0 1 12 2z"/><path d="M12 2v20M8 6c0 4 4 6 4 6s4-2 4-6"/></svg></div>
+        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Tórax · Anteroposterior</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Sin infiltrados.</div></div>
+        <span class="badge b-success">Normal</span>
+      </div>
+      <div class="rx-row">
+        <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.07-4.96A3 3 0 0 1 6 9a3 3 0 0 1 2.5-2.96A2.5 2.5 0 0 1 9.5 2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.07-4.96A3 3 0 0 0 18 9a3 3 0 0 0-2.5-2.96A2.5 2.5 0 0 0 14.5 2"/></svg></div>
+        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Cráneo · Lateral</div><div class="rx-desc">Philips DigitalDiagnost · 20/04/2026 · Sin fracturas.</div></div>
+        <span class="badge b-success">Normal</span>
+      </div>
+      <div class="rx-row">
+        <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.2 7.8c1 1 1.8 2.2 1.8 3.7a5 5 0 0 1-5 5c-1.5 0-2.8-.8-3.7-1.8L5.8 9.2C4.8 8.2 4 7 4 5.5a5 5 0 0 1 5-5c1.5 0 2.8.8 3.7 1.8l5.5 5.5z"/><path d="M5.8 16.2c-1-1-1.8-2.2-1.8-3.7a5 5 0 0 1 5-5c1.5 0 2.8.8 3.7 1.8l5.5 5.5c1 1 1.8 2.2 1.8 3.7a5 5 0 0 1-5 5c-1.5 0-2.8-.8-3.7-1.8l-5.5-5.5z"/></svg></div>
+        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Columna Lumbar · AP</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Leve rectificación.</div></div>
+        <span class="badge b-warning">Prioritaria</span>
+      </div>
+    </div>
+
+    <!-- FILA 8 — procedimientos -->
+    <div class="bloque zona-8">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Procedimientos
+        </div>
+        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+      </div>
+      <div class="proc-item">
+        <div class="proc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4-14 14H4v-4L18 2z"/><path d="M14.5 5.5l4 4"/><line x1="10" y1="9" x2="15" y2="14"/></svg></div>
+        <div style="flex:1"><div class="proc-nombre">Inyección intramuscular</div><div class="proc-sub">Ketorolaco 30mg · Glúteo derecho · Sin complicaciones</div></div>
+        <span class="badge b-success">Realizado</span>
+      </div>
+      <div class="proc-item">
+        <div class="proc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10.5l6-6 6 6-6 6-6-6z" transform="rotate(45 12 12)"/><line x1="9" y1="9" x2="11" y2="11"/><line x1="13" y1="13" x2="15" y2="15"/><line x1="9" y1="15" x2="11" y2="13"/><line x1="13" y1="9" x2="15" y2="11"/></svg></div>
+        <div style="flex:1"><div class="proc-nombre">Curación de herida</div><div class="proc-sub">Región dorsal · Limpieza y apósito estéril</div></div>
+        <span class="badge b-success">Realizado</span>
+      </div>
+    </div>
+
+    <!-- FILA 9 — resultados y pendientes -->
+    <div class="bloque zona-9">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Resultados sin revisar
+        </div>
+      </div>
+      <div class="resultados-grid">
+
+        <div class="res-card alerta">
+          <a href="resultado-laboratorio.html">
+            <button class="btn-icon res-ojo" title="Ver detalle laboratorio">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </a>
+          <div class="res-tipo">Laboratorio</div>
+          <div class="res-nombre">Hemograma + Perfil bioquímico</div>
+          <div class="res-fecha">20/04/2026</div>
+          <div class="res-medico">Dr. García</div>
+          <span class="badge b-danger" style="margin-top:4px; width:fit-content">3 alertas</span>
+        </div>
+
+        <div class="res-card normal">
+          <a href="resultado-imagen.html">
+            <button class="btn-icon res-ojo" title="Ver detalle imagen">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </a>
+          <div class="res-tipo">Imágenes</div>
+          <div class="res-nombre">RX Tórax · Anteroposterior</div>
+          <div class="res-fecha">20/04/2026</div>
+          <div class="res-medico">Dr. García</div>
+          <span class="badge b-success" style="margin-top:4px; width:fit-content">Normal</span>
+        </div>
+
+        <div class="res-card normal">
+          <a href="resultado-imagen.html">
+            <button class="btn-icon res-ojo" title="Ver detalle imagen">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </a>
+          <div class="res-tipo">Imágenes</div>
+          <div class="res-nombre">RX Columna Lumbar · AP</div>
+          <div class="res-fecha">20/04/2026</div>
+          <div class="res-medico">Dr. Rodríguez</div>
+          <span class="badge b-warning" style="margin-top:4px; width:fit-content">Observar</span>
+        </div>
+
+        <div class="res-card pendiente">
+          <button class="btn-icon res-ojo" title="Pendiente" disabled>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </button>
+          <div class="res-tipo">Laboratorio</div>
+          <div class="res-nombre">Glucosa en ayunas</div>
+          <div class="res-fecha">Pendiente · 21/04/2026</div>
+          <div class="res-medico">Dr. García</div>
+          <span class="badge b-secondary" style="margin-top:4px; width:fit-content">Pendiente</span>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="medicos.html">Médicos</a>
+    <a href="atencion.html">Atención</a>
+    <a href="index.html">Salir</a>
+    <br /><br />
+    &copy; 2026 PRY-EGFLL &middot; Sistema de Gestión Médica
+  </footer>
+
+</body>
+</html>

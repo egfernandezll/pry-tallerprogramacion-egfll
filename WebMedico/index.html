@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PRY-EGFLL — Sistema de Gestión Médica" />
+  <meta name="author" content="efernandez" />
+  <title>PRY-EGFLL — Acceso</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/login.animations.css" />
+</head>
+<body>
+
+  <header>
+    <h1>PRY-EGFLL</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="soporte.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="login-box">
+
+      <!-- ícono superior centrado — estilo imagen referencia -->
+      <div class="login-icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+      </div>
+
+      <div class="login-title">Acceso al sistema</div>
+      <div class="login-sub">Ingresa tus credenciales para continuar en PRY-EGFLL</div>
+
+      <!-- campo usuario con ícono SVG integrado -->
+      <div class="input-field">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <input type="text" id="usuario" placeholder="Usuario" />
+      </div>
+
+      <!-- campo contraseña con ícono SVG y botón ojo -->
+      <div class="input-field">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <input type="password" id="password" placeholder="Contraseña" />
+        <!-- botón ojo — mismo estilo que imagen referencia -->
+        <button class="eye-toggle" type="button" title="Mostrar contraseña">
+          <svg viewBox="0 0 24 24">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+            <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- campo perfil con ícono SVG -->
+      <div class="input-field">
+        <svg viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <select id="rol">
+          <option value="" disabled selected>Perfil de acceso</option>
+          <option>Médico</option>
+          <option>Admisión</option>
+          <option>TI</option>
+        </select>
+      </div>
+
+      <!-- botón pill negro con spinner SIEMPRE visible -->
+      <a href="medicos.html">
+        <button class="btn-login" type="button">
+          <span class="spinner"></span>
+          Ingresar al sistema
+        </button>
+      </a>
+
+      <div class="login-divider">
+        <div class="div-line"></div>
+        <span class="div-text">PRY-EGFLL 2026</span>
+        <div class="div-line"></div>
+      </div>
+
+      <div class="login-footer">&copy; 2026 PRY-EGFLL &middot; Sistema de Gestión Médica</div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 PRY-EGFLL &middot; efernandez
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+/* ================================================
+   global.css — Estilos base compartidos
+   PRY-EGFLL 2026 · Paleta azul cielo
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- RESET --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* --- BASE --- */
+body {
+  background: linear-gradient(135deg, #deeeff 0%, #eaf4ff 50%, #f0f7ff 100%);
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  color: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: #0d6efd; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ================================================
+   HEADER — mismo color que botón login (#1a1a2e)
+   ================================================ */
+header {
+  background-color: #1a1a2e;        /* negro oscuro igual al btn login */
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+}
+header h1 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* usuario logueado — lado derecho del header */
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.header-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.header-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ================================================
+   BOTÓN CERRAR SESIÓN — animación sorprendente
+   Efecto: lava/fuego que sube desde abajo con glow
+   ================================================ */
+.btn-logout {
+  position: relative;
+  overflow: hidden;
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  border-radius: 99px;
+  padding: 8px 18px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 0 rgba(220,53,69,0);
+}
+/* ola de lava que sube desde abajo al hover */
+.btn-logout::before {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: -10%;
+  width: 120%;
+  height: 200%;
+  background: radial-gradient(ellipse at 50% 100%,
+    rgba(255,100,50,0.95) 0%,
+    rgba(255,50,50,0.8) 40%,
+    transparent 70%);
+  border-radius: 50%;
+  transition: bottom 0.45s cubic-bezier(.22,1,.36,1), transform 0.45s ease;
+  transform: scaleX(1.2);
+  z-index: 0;
+}
+.btn-logout:hover::before {
+  bottom: -20%;              /* ola sube */
+}
+/* glow rojo pulsante al hover */
+.btn-logout:hover {
+  box-shadow:
+    0 0 12px rgba(220,53,69,0.7),
+    0 0 28px rgba(220,53,69,0.4),
+    0 0 50px rgba(220,53,69,0.2);
+  transform: translateY(-2px);
+}
+/* texto e ícono sobre la ola */
+.btn-logout span,
+.btn-logout svg {
+  position: relative;
+  z-index: 1;
+}
+/* shake al hacer click */
+.btn-logout:active {
+  animation: shakeLogout 0.35s ease;
+}
+
+/* ================================================
+   NAV
+   ================================================ */
+nav {
+  background-color: rgba(255,255,255,0.92);
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  padding: 0 36px;
+  backdrop-filter: blur(10px);
+}
+nav ul { list-style: none; display: flex; }
+nav ul li a {
+  display: block;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6c757d;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+nav ul li a:hover { color: #1a1a2e; text-decoration: none; }
+nav ul li a.activo { color: #0d6efd; border-bottom-color: #0d6efd; }
+
+/* ================================================
+   MAIN
+   ================================================ */
+main {
+  flex: 1;
+  max-width: 1080px;
+  margin: 36px auto;
+  padding: 0 24px;
+  width: 100%;
+  overflow: visible;               /* permite zoom/elevación de cards sin recorte */
+}
+
+/* ================================================
+   SECCIONES
+   ================================================ */
+section { margin-bottom: 36px; overflow: visible; } /* permite zoom/elevación sin recorte */
+section h2 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ================================================
+   TABLAS
+   ================================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(13,110,253,0.06);
+}
+th {
+  background-color: #f8faff;
+  color: #6c757d;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  color: #2d3748;
+  vertical-align: middle;
+  font-size: 14px;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background-color: #f0f7ff; transition: background-color 0.15s ease; }
+
+/* ================================================
+   BADGES
+   ================================================ */
+.badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.b-primary   { background-color: rgba(13,110,253,0.12); color: #0d6efd; border: 1px solid rgba(13,110,253,0.25); }
+.b-success   { background-color: rgba(25,135,84,0.12);  color: #198754; border: 1px solid rgba(25,135,84,0.25); }
+.b-danger    { background-color: rgba(220,53,69,0.12);  color: #dc3545; border: 1px solid rgba(220,53,69,0.25); }
+.b-warning   { background-color: rgba(255,193,7,0.18);  color: #856404; border: 1px solid rgba(255,193,7,0.35); }
+.b-secondary { background-color: rgba(108,117,125,0.12);color: #6c757d; border: 1px solid rgba(108,117,125,0.25); }
+.b-info      { background-color: rgba(13,202,240,0.12); color: #087990; border: 1px solid rgba(13,202,240,0.25); }
+
+/* ================================================
+   FORMULARIOS
+   ================================================ */
+.f-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 5px;
+  margin-top: 12px;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  background-color: #f0f4f8;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  color: #1a1a2e;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #0d6efd;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(13,110,253,0.1);
+}
+textarea { resize: vertical; min-height: 88px; }
+
+/* ================================================
+   BOTONES
+   ================================================ */
+.btn {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary  { background-color: #0d6efd; color: #ffffff; box-shadow: 0 4px 14px rgba(13,110,253,0.35); }
+.btn-primary:hover { background-color: #0b5ed7; transform: translateY(-1px); }
+
+.btn-outline  { background-color: transparent; color: #0d6efd; border: 1.5px solid #0d6efd; }
+.btn-outline:hover { background-color: #0d6efd; color: #ffffff; }
+
+/* botón ícono */
+.btn-icon {
+  background-color: #f0f4f8;
+  border: none;
+  border-radius: 10px;
+  width: 36px; height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-icon:hover { background-color: #0d6efd; color: #ffffff; }
+.btn-icon svg  { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+
+/* ================================================
+   BLOQUE
+   ================================================ */
+.bloque {
+  background-color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 16px 18px 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px rgba(13,110,253,0.06);
+}
+.bloque-titulo {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bloque-titulo-left { display: flex; align-items: center; gap: 8px; }
+
+/* ================================================
+   ÍCONOS SVG — estilo consistente
+   ================================================ */
+
+/* ================================================
+   GRIDS
+   ================================================ */
+.g-half  { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.g-pac   { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+
+/* ================================================
+   CHIP
+   ================================================ */
+.chip { background-color: #f0f4f8; border-radius: 12px; padding: 10px 12px; border: 1px solid transparent; transition: border-color 0.2s ease; }
+.chip.alerta { background-color: rgba(220,53,69,0.06); border-color: rgba(220,53,69,0.2); animation: pulseDanger 3s ease infinite; }
+.chip-label  { font-size: 11px; color: #6c757d; margin-bottom: 3px; font-weight: 500; }
+.chip-valor  { font-size: 15px; font-weight: 600; color: #1a1a2e; }
+.chip-valor.danger { color: #dc3545; }
+
+/* ================================================
+   FOTO
+   ================================================ */
+
+/* ================================================
+   VALORES LAB
+   ================================================ */
+.val-alto { color: #dc3545; font-weight: 700; font-size: 13px; }
+.val-ok   { color: #198754; font-size: 13px; font-weight: 500; }
+
+audio { width: 100%; margin-top: 8px; border-radius: 8px; }
+
+/* ================================================
+   FOOTER — mismo color que header (#1a1a2e)
+   ================================================ */
+footer {
+  background-color: #1a1a2e;        /* negro oscuro igual al header */
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+footer a { color: rgba(255,255,255,0.45); margin: 0 8px; }
+footer a:hover { color: #ffffff; text-decoration: none; }
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  nav { padding: 0 20px; overflow-x: auto; }
+  main { margin: 20px auto; padding: 0 16px; }
+  .g-half  { grid-template-columns: 1fr; }
+    .g-pac   { grid-template-columns: 1fr; }
+  table { display: block; overflow-x: auto; }
+  .header-name { display: none; }       /* oculta nombre en móvil */
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 11px; letter-spacing: 2px; }
+    .btn-group { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}

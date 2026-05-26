@@ -1,0 +1,185 @@
+/* ================================================
+   login.css — Estilos de index.html
+   Basado en imagen de referencia: fondo degradado,
+   caja blanca, inputs sin borde, botón pill negro
+   ================================================ */
+
+/* main centrado — ocupa todo el alto disponible */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* caja principal del login */
+.login-box {
+  background-color: #ffffff;
+  border-radius: 28px;              /* muy redondeado como imagen */
+  padding: 44px 40px 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(13,110,253,0.12), 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* ícono arriba centrado — igual que imagen */
+.login-icon-wrap {
+  width: 68px; height: 68px;
+  background-color: #f0f4f8;        /* gris suave como imagen */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+.login-icon-wrap svg {
+  width: 32px; height: 32px;
+  stroke: #1a1a2e;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* título grande y negrita */
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+/* subtítulo gris */
+.login-sub {
+  font-size: 15px;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* input con ícono integrado — estilo imagen */
+.input-field {
+  position: relative;
+  margin-bottom: 14px;
+}
+.input-field svg {                  /* ícono SVG dentro del input */
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px; height: 18px;
+  stroke: #adb5bd;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: stroke 0.2s ease;
+}
+.input-field input,
+.input-field select {
+  padding-left: 46px;               /* espacio para el ícono */
+  border-radius: 14px;
+  font-size: 15px;
+  height: 52px;
+  background-color: #f0f4f8;
+  border: 1.5px solid transparent;
+}
+.input-field input:focus ~ svg,
+.input-field input:focus + svg { stroke: #0d6efd; } /* ícono azul al enfocar */
+
+/* ícono ojo — mostrar/ocultar contraseña */
+.eye-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e8ecf0;              /* fondo redondeado estilo imagen */
+  border: none;
+  border-radius: 8px;
+  width: 34px; height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.eye-toggle svg {
+  width: 16px; height: 16px;
+  stroke: #6c757d;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  position: static;                 /* anula el absolute del ícono padre */
+  transform: none;
+  pointer-events: none;
+}
+.eye-toggle:hover { background-color: #dde2e8; }
+
+/* select con ícono */
+.input-field select { padding-left: 46px; }
+
+/* botón pill negro — igual que imagen */
+.btn-login {
+  width: 100%;
+  background-color: #1a1a2e;       /* negro oscuro */
+  color: #ffffff;
+  border: none;
+  border-radius: 99px;             /* pill completo */
+  padding: 16px;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.btn-login:hover { background-color: #2d2d44; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.btn-login:active { transform: translateY(1px); }
+
+/* spinner CSS — siempre visible en botón login */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite; /* gira siempre */
+  flex-shrink: 0;
+}
+
+/* separador con texto */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 14px;
+}
+.div-line { flex: 1; height: 1px; background-color: #e9ecef; }
+.div-text  { font-size: 12px; color: #adb5bd; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+
+/* pie de caja */
+.login-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #adb5bd;
+}
+
+/* ================================================
+   RESPONSIVE login
+   ================================================ */
+@media (max-width: 480px) {
+  .login-box { padding: 32px 24px; border-radius: 20px; }
+  .login-title { font-size: 22px; }
+}

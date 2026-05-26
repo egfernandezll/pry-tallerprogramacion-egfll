@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PRY-EGFLL — Resultado de laboratorio" />
+  <meta name="author" content="efernandez" />
+  <title>PRY-EGFLL — Laboratorio</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/resultado-laboratorio.css" />
+  <link rel="stylesheet" href="css/resultado-laboratorio.animations.css" />
+</head>
+<body>
+
+  <header>
+    <h1>PRY-EGFLL</h1>
+    <div class="header-user">
+      <img class="header-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario" />
+      <span class="header-name">Dr. Usuario</span>
+      <a href="index.html">
+        <button class="btn-logout" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Cerrar sesión</span>
+        </button>
+      </a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="medicos.html">Médicos</a></li>
+      <li><a href="atencion.html">Atención</a></li>
+      <li><a href="soporte.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- acciones -->
+    <div class="btn-group">
+      <button class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Imprimir informe
+      </button>
+      <a href="atencion.html">
+        <button class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Volver a atención
+        </button>
+      </a>
+    </div>
+
+    <!-- FILA 1 — datos del paciente + detalle estudio -->
+    <div class="g-pac" style="gap:12px; margin-bottom:12px;">
+      <div class="pac-header">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos García" />
+        <div>
+          <div class="pac-nombre">Carlos García</div>
+          <div class="pac-meta">DNI: 45678912 · 34 años · Masculino · O+ · SIS · HC-2024-0087</div>
+          <span class="badge b-danger" style="margin-top:6px">3 valores fuera de rango</span>
+        </div>
+      </div>
+      <div class="info-mini">
+        <div class="bloque-titulo"><div class="bloque-titulo-left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l2 7H5l7 11 7-11h-6l2-7H9z"/></svg> Informe de laboratorio</div></div>
+        <div class="info-row"><div class="info-label">Fecha de toma</div><div class="info-valor">20/04/2026 · 07:30 am</div></div>
+        <div class="info-row"><div class="info-label">Laboratorio</div><div class="info-valor">Lab. Central PRY-EGFLL</div></div>
+        <div class="info-row"><div class="info-label">Solicitado por</div><div class="info-valor">Dr. García · Medicina General</div></div>
+      </div>
+    </div>
+
+    <!-- FILA 2 — alertas -->
+    <div class="bloque" style="margin-bottom:12px;">
+      <div class="bloque-titulo">
+        <div class="bloque-titulo-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Valores fuera de rango
+        </div>
+        <span class="badge b-danger">3 alertas</span>
+      </div>
+      <div class="alertas-grid">
+        <div class="alerta-chip"><div class="alerta-nombre">Leucocitos</div><div class="alerta-valor">11,200 /μL</div><div class="alerta-ref">Ref: 4,500–10,000</div></div>
+        <div class="alerta-chip"><div class="alerta-nombre">Colesterol total</div><div class="alerta-valor">218 mg/dL</div><div class="alerta-ref">Ref: &lt;200</div></div>
+        <div class="alerta-chip"><div class="alerta-nombre">PCR proteína C</div><div class="alerta-valor">3.2 mg/L</div><div class="alerta-ref">Ref: &lt;1.0</div></div>
+      </div>
+    </div>
+
+    <!-- FILA 3 — resultados completos con barra -->
+    <div class="bloque bloque-lab" style="margin-bottom:12px;">
+      <div class="bloque-titulo"><div class="bloque-titulo-left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Resultados completos</div></div>
+      <div class="lab-row"><div class="lab-nombre">Hemoglobina</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:72%"></div></div><div class="lab-valor val-ok">14.2 g/dL</div><div class="lab-ref">13.0–17.0</div></div>
+      <div class="lab-row"><div class="lab-nombre">Hematocrito</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:60%"></div></div><div class="lab-valor val-ok">42 %</div><div class="lab-ref">38–52 %</div></div>
+      <div class="lab-row"><div class="lab-nombre">Leucocitos</div><div class="lab-bar-wrap"><div class="lab-bar bar-alto" style="width:88%"></div></div><div class="lab-valor val-alto">11,200 /μL</div><div class="lab-ref">4,500–10,000</div></div>
+      <div class="lab-row"><div class="lab-nombre">Plaquetas</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:42%"></div></div><div class="lab-valor val-ok">210,000 /μL</div><div class="lab-ref">150,000–400,000</div></div>
+      <div class="lab-row"><div class="lab-nombre">Glucosa</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:55%"></div></div><div class="lab-valor val-ok">95 mg/dL</div><div class="lab-ref">70–100</div></div>
+      <div class="lab-row"><div class="lab-nombre">Creatinina</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:40%"></div></div><div class="lab-valor val-ok">0.8 mg/dL</div><div class="lab-ref">0.7–1.2</div></div>
+      <div class="lab-row"><div class="lab-nombre">Colesterol total</div><div class="lab-bar-wrap"><div class="lab-bar bar-alto" style="width:92%"></div></div><div class="lab-valor val-alto">218 mg/dL</div><div class="lab-ref">&lt;200</div></div>
+      <div class="lab-row"><div class="lab-nombre">Triglicéridos</div><div class="lab-bar-wrap"><div class="lab-bar bar-ok" style="width:38%"></div></div><div class="lab-valor val-ok">88 mg/dL</div><div class="lab-ref">&lt;150</div></div>
+      <div class="lab-row"><div class="lab-nombre">PCR proteína C</div><div class="lab-bar-wrap"><div class="lab-bar bar-alto" style="width:95%"></div></div><div class="lab-valor val-alto">3.2 mg/L</div><div class="lab-ref">&lt;1.0</div></div>
+    </div>
+
+    <!-- FILA 4 — observaciones -->
+    <div class="bloque bloque-obs" style="margin-bottom:12px;">
+      <div class="bloque-titulo"><div class="bloque-titulo-left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Observaciones del laboratorista</div></div>
+      <div class="obs-box">Leucocitosis moderada compatible con proceso infeccioso o inflamatorio activo. Colesterol total y PCR elevados sugieren riesgo cardiovascular a vigilar. Se recomienda repetir perfil lipídico en ayunas estrictas y correlacionar con cuadro clínico.</div>
+    </div>
+
+    <!-- FILA 5 — firma -->
+    <div class="bloque bloque-firma">
+      <div class="bloque-titulo"><div class="bloque-titulo-left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Validado por</div></div>
+      <div class="firma">
+        <img class="firma-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. García" />
+        <div>
+          <div class="firma-nombre">Dr. Carlos García</div>
+          <div class="firma-esp">Medicina General · CMP 45678 · 20/04/2026</div>
+        </div>
+        <span class="badge b-success" style="margin-left:auto">Validado</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 PRY-EGFLL &middot; Sistema de Gestión Médica
+  </footer>
+
+</body>
+</html>
