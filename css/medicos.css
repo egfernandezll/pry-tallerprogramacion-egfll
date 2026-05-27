@@ -7,7 +7,7 @@
    ================================================ */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));/* columnas flexibles con mínimo de 180px */
   gap: 12px;
   margin-bottom: 12px;
   overflow: visible;               /* permite que el scale no se recorte */
@@ -153,7 +153,8 @@
    RESPONSIVE medicos
    ================================================ */
 @media (max-width: 768px) {
-  .sala-grid { grid-template-columns: repeat(2, 1fr); }
+  .sala-grid { grid-template-columns: repeat(2, 1fr); }/*Mostrar Card por fila*/
+  .stats { grid-template-columns: repeat(2,2fr); }  /*Mostrar Card por fila*/
 }
 @media (max-width: 480px) {
   .sala-grid { grid-template-columns: 1fr; }
