@@ -81,12 +81,11 @@
       </div>
 
       <!-- botón pill negro con spinner SIEMPRE visible -->
-      <a href="medicos.html">
-        <button class="btn-login" type="button">
-          <span class="spinner"></span>
+      <!--<a href="medicos.html">-->
+        <button class="btn-login" type="button" id="btn-login">
           Ingresar al sistema
         </button>
-      </a>
+      <!--</a>--->
 
       <div class="login-divider">
         <div class="div-line"></div>
@@ -103,5 +102,21 @@
     &copy; 2026 PRY-EGFLL &middot; efernandez
   </footer>
 
+
+  <!-- Modal login — bienvenida o error -->
+  <div class="modal-overlay" id="modal-login">
+    <div class="modal-box">
+      <div class="modal-icono" id="modal-icono">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="modal-titulo" id="modal-titulo">Bienvenido</div>
+      <div class="modal-mensaje" id="modal-mensaje"></div>
+      <div class="modal-btns">
+        <button class="btn btn-primary" id="modal-btn-ok">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
 </body>
 </html>

@@ -112,7 +112,7 @@
 .rx-thumb {
   width: 44px; height: 44px;
   border-radius: 8px;
-  background-color: paleturquoise;       /* fondo oscuro para RX */
+  background-color: #1a1a1a;       /* fondo oscuro para RX */
   display: flex; align-items: center; justify-content: center;
   font-size: 20px;
   flex-shrink: 0;
@@ -120,6 +120,7 @@
 }
 .rx-tipo { font-size: 12px; font-weight: 500; color: #212529; }
 .rx-desc { font-size: 11px; color: #6c757d; line-height: 1.4; }
+.rx-info  { flex: 1; }          /* contenedor texto junto al thumb */
 
 /* ================================================
    PROCEDIMIENTOS
@@ -196,4 +197,33 @@
   .chips-grid { grid-template-columns: 1fr 1fr; }
   .resultados-grid { grid-template-columns: 1fr; }
   .pac-header { flex-direction: column; text-align: center; }
+}
+
+/* ================================================
+   BOTÓN ELIMINAR — ícono tacho
+   ================================================ */
+.btn-eliminar {
+  background: none;
+  border: none;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6c757d;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-eliminar:hover {
+  background-color: rgba(220,53,69,0.1);
+  color: #dc3545;
+}
+.btn-eliminar svg {
+  width: 15px; height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

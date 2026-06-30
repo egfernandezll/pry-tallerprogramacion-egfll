@@ -54,6 +54,7 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  margin-bottom: 12px;
 }
 /* imagen RX ocupa casi todo el visor */
 .visor img {
@@ -75,10 +76,18 @@
   position: absolute; top: 14px; left: 14px;
   background-color: rgba(0,0,0,0.7);
   color: #adb5bd; font-size: 10px; font-weight: 600;
-  padding: 5px 15px; border-radius: 99px;
+  padding: 5px 12px; border-radius: 99px;
   letter-spacing: 1.5px; text-transform: uppercase;
 }
-
+.visor-actions { position: absolute; top: 14px; right: 14px; display: flex; gap: 8px; }
+.visor-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  background-color: rgba(255,255,255,0.08);
+  border: none; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background-color 0.2s ease;
+}
+.visor-btn svg { width: 16px; height: 16px; stroke: #adb5bd; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.visor-btn:hover { background-color: rgba(255,255,255,0.18); }
 
 /* ================================================
    PARÁMETROS TÉCNICOS

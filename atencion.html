@@ -14,20 +14,24 @@
 <body>
 
   <header>
-    <h1>PRY-EGFLL</h1>
+    <div class="header-left">
+      <!-- botón hamburguesa visible solo en móvil -->
+      <button class="btn-hamburguesa" id="btn-hamburguesa" title="Menú">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <h1>PRY-EGFLL</h1>
+    </div>
     <div class="header-user">
-      <img class="header-avatar" src="https://picsum.photos/300/300?1" alt="Usuario" />
-      <span class="header-name">Dr. Usuario</span>
-      <a href="index.html">
-        <button class="btn-logout" type="button">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-          <span>Cerrar sesión</span>
-        </button>
-      </a>
+      <img class="header-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario" />
+      <span class="header-name" id="header-nombre">Usuario</span>
+      <button class="btn-logout" id="btn-logout" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Cerrar sesión</span>
+      </button>
     </div>
   </header>
 
-  <nav>
+  <nav id="nav-menu">
     <ul>
       <li><a href="medicos.html">Médicos</a></li>
       <li><a href="atencion.html" class="activo">Atención</a></li>
@@ -39,7 +43,7 @@
 
     <!-- acciones principales -->
     <div class="btn-group">
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" id="btn-guardar">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
         Guardar atención
       </button>
@@ -54,7 +58,7 @@
     <!-- FILA 1 — paciente + última visita -->
     <div class="g-pac zona-1" style="gap:12px; margin-bottom:12px;">
       <div class="pac-header">
-        <img src="https://picsum.photos/300/300?1" alt="Carlos García" />
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos García" />
         <div>
           <div class="pac-nombre">Carlos García</div>
           <div class="pac-meta">DNI: 45678912 · 34 años · Masculino · O+ · SIS · HC-2024-0087</div>
@@ -82,6 +86,9 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             Signos vitales
           </div>
+          <button class="btn-icon" title="Ver todos">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
         </div>
         <div class="chips-grid">
           <div class="chip"><div class="chip-label">Presión arterial</div><div class="chip-valor">118/76 mmHg</div></div>
@@ -98,6 +105,9 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             Alergias conocidas
           </div>
+          <button class="btn-icon" title="Ver todas">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
         </div>
         <div class="chips-grid">
           <div class="chip alerta"><div class="chip-label">Medicamento</div><div class="chip-valor danger">Penicilina</div></div>
@@ -169,22 +179,24 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
           Recetas médicas
         </div>
-        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+        <button class="btn btn-outline" id="btn-agregar-receta" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
       </div>
-      <div class="receta-item">
+      <div id="tabla-recetas"><div class="receta-item" id="receta-1">
         <div class="receta-ico">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
         </div>
         <div style="flex:1"><div class="receta-nombre">Ibuprofeno 400mg</div><div class="receta-dosis">1 tableta cada 8h · 5 días · Con alimentos</div></div>
         <span class="badge b-success">Activo</span>
+        <button class="btn-eliminar" onclick="eliminarReceta(1)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
       </div>
-      <div class="receta-item">
+      <div class="receta-item" id="receta-2">
         <div class="receta-ico">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
         </div>
         <div style="flex:1"><div class="receta-nombre">Enalapril 5mg</div><div class="receta-dosis">1 tableta cada 24h · Continuo · En ayunas</div></div>
         <span class="badge b-success">Activo</span>
-      </div>
+        <button class="btn-eliminar" onclick="eliminarReceta(2)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
+      </div></div>
     </div>
 
     <!-- FILA 6 — laboratorio -->
@@ -192,7 +204,7 @@
       <div class="bloque-titulo">
         <div class="bloque-titulo-left">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l2 7H5l7 11 7-11h-6l2-7H9z"/></svg>
-          Laboratorio - Solicitado
+          Laboratorio
         </div>
         <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
       </div>
@@ -207,24 +219,39 @@
       <div class="bloque-titulo">
         <div class="bloque-titulo-left">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Imágenes radiológicas - Solicitadas
+          Imágenes radiológicas
         </div>
         <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
       </div>
       <div class="rx-row">
         <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 4-2 7-5 9H7c-3-2-5-5-5-9A10 10 0 0 1 12 2z"/><path d="M12 2v20M8 6c0 4 4 6 4 6s4-2 4-6"/></svg></div>
-        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Tórax · Anteroposterior</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Sin infiltrados.</div></div>
+        <div class="rx-info"><div class="rx-tipo">RX Tórax · Anteroposterior</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Sin infiltrados.</div></div>
         <span class="badge b-success">Normal</span>
+        <a href="resultado-imagen.html">
+          <button class="btn-icon" style="margin-left:8px" title="Ver imagen">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </a>
       </div>
       <div class="rx-row">
         <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.07-4.96A3 3 0 0 1 6 9a3 3 0 0 1 2.5-2.96A2.5 2.5 0 0 1 9.5 2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.07-4.96A3 3 0 0 0 18 9a3 3 0 0 0-2.5-2.96A2.5 2.5 0 0 0 14.5 2"/></svg></div>
-        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Cráneo · Lateral</div><div class="rx-desc">Philips DigitalDiagnost · 20/04/2026 · Sin fracturas.</div></div>
+        <div class="rx-info"><div class="rx-tipo">RX Cráneo · Lateral</div><div class="rx-desc">Philips DigitalDiagnost · 20/04/2026 · Sin fracturas.</div></div>
         <span class="badge b-success">Normal</span>
+        <a href="resultado-imagen.html">
+          <button class="btn-icon" style="margin-left:8px" title="Ver imagen">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </a>
       </div>
       <div class="rx-row">
         <div class="rx-thumb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.2 7.8c1 1 1.8 2.2 1.8 3.7a5 5 0 0 1-5 5c-1.5 0-2.8-.8-3.7-1.8L5.8 9.2C4.8 8.2 4 7 4 5.5a5 5 0 0 1 5-5c1.5 0 2.8.8 3.7 1.8l5.5 5.5z"/><path d="M5.8 16.2c-1-1-1.8-2.2-1.8-3.7a5 5 0 0 1 5-5c1.5 0 2.8.8 3.7 1.8l5.5 5.5c1 1 1.8 2.2 1.8 3.7a5 5 0 0 1-5 5c-1.5 0-2.8-.8-3.7-1.8l-5.5-5.5z"/></svg></div>
-        <div class="rx-info" style="flex:1"><div class="rx-tipo">RX Columna Lumbar · AP</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Leve rectificación.</div></div>
-        <span class="badge b-warning">Prioritaria</span>
+        <div class="rx-info"><div class="rx-tipo">RX Columna Lumbar · AP</div><div class="rx-desc">Siemens Ysio Max · 20/04/2026 · Leve rectificación.</div></div>
+        <span class="badge b-warning">Observar</span>
+        <a href="resultado-imagen.html">
+          <button class="btn-icon" style="margin-left:8px" title="Ver imagen">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </a>
       </div>
     </div>
 
@@ -235,26 +262,27 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           Procedimientos
         </div>
-        <button class="btn btn-outline" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
+        <button class="btn btn-outline" id="btn-agregar-proc" style="padding:5px 12px; font-size:11px;">+ Agregar</button>
       </div>
-      <div class="proc-item">
+      <div id="lista-procedimientos"><div class="proc-item" id="proc-1">
         <div class="proc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 4-14 14H4v-4L18 2z"/><path d="M14.5 5.5l4 4"/><line x1="10" y1="9" x2="15" y2="14"/></svg></div>
         <div style="flex:1"><div class="proc-nombre">Inyección intramuscular</div><div class="proc-sub">Ketorolaco 30mg · Glúteo derecho · Sin complicaciones</div></div>
         <span class="badge b-success">Realizado</span>
+        <button class="btn-eliminar" onclick="eliminarProcedimiento(1)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
       </div>
-      <div class="proc-item">
+      <div class="proc-item" id="proc-2">
         <div class="proc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10.5l6-6 6 6-6 6-6-6z" transform="rotate(45 12 12)"/><line x1="9" y1="9" x2="11" y2="11"/><line x1="13" y1="13" x2="15" y2="15"/><line x1="9" y1="15" x2="11" y2="13"/><line x1="13" y1="9" x2="15" y2="11"/></svg></div>
         <div style="flex:1"><div class="proc-nombre">Curación de herida</div><div class="proc-sub">Región dorsal · Limpieza y apósito estéril</div></div>
         <span class="badge b-success">Realizado</span>
-      </div>
-    </div>
+        <button class="btn-eliminar" onclick="eliminarProcedimiento(2)" title="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button>
+      </div></div>
 
     <!-- FILA 9 — resultados y pendientes -->
     <div class="bloque zona-9">
       <div class="bloque-titulo">
         <div class="bloque-titulo-left">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          Resultados sin revisar
+          Resultados y pendientes
         </div>
       </div>
       <div class="resultados-grid">
@@ -321,6 +349,76 @@
     <br /><br />
     &copy; 2026 PRY-EGFLL &middot; Sistema de Gestión Médica
   </footer>
+
+
+  <!-- Modal confirmación cerrar sesión -->
+  <div class="modal-overlay" id="modal-cerrar">
+    <div class="modal-box">
+      <div class="modal-icono modal-icono-warn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#856404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="modal-titulo">¿Cerrar sesión?</div>
+      <div class="modal-mensaje">¿Estás seguro que deseas salir del sistema?</div>
+      <div class="modal-btns">
+        <button class="btn btn-danger" onclick="cerrarSesion()">Sí, salir</button>
+        <button class="btn btn-outline" onclick="cancelarCerrarSesion()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+
+  <!-- Modal confirmación guardar atención -->
+  <div class="modal-overlay" id="modal-guardar">
+    <div class="modal-box">
+      <div class="modal-icono modal-icono-ok">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+      </div>
+      <div class="modal-titulo">¿Guardar atención?</div>
+      <div class="modal-mensaje">Se registrará la atención del paciente y volverás al listado.</div>
+      <div class="modal-btns">
+        <button class="btn btn-primary" onclick="aceptarGuardar()">Sí, guardar</button>
+        <button class="btn btn-outline" onclick="cancelarGuardar()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal agregar receta -->
+  <div class="modal-overlay" id="modal-receta">
+    <div class="modal-box">
+      <div class="modal-titulo">Nueva receta</div>
+      <div class="modal-form">
+        <label class="f-label" for="input-medicamento">Medicamento</label>
+        <input type="text" id="input-medicamento" placeholder="Ej: Paracetamol 500mg" />
+        <label class="f-label" for="input-dosis">Dosis e indicaciones</label>
+        <input type="text" id="input-dosis" placeholder="Ej: 1 tableta cada 8h · 5 días" />
+        <div class="modal-error" id="receta-error"></div>
+      </div>
+      <div class="modal-btns" style="margin-top:20px;">
+        <button class="btn btn-primary" onclick="agregarReceta()">Agregar</button>
+        <button class="btn btn-outline" onclick="cerrarModalReceta()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal agregar procedimiento -->
+  <div class="modal-overlay" id="modal-procedimiento">
+    <div class="modal-box">
+      <div class="modal-titulo">Nuevo procedimiento</div>
+      <div class="modal-form">
+        <label class="f-label" for="input-procedimiento">Procedimiento</label>
+        <input type="text" id="input-procedimiento" placeholder="Ej: Curación de herida" />
+        <label class="f-label" for="input-detalle-proc">Detalle</label>
+        <input type="text" id="input-detalle-proc" placeholder="Ej: Región dorsal · Sin complicaciones" />
+        <div class="modal-error" id="proc-error"></div>
+      </div>
+      <div class="modal-btns" style="margin-top:20px;">
+        <button class="btn btn-primary" onclick="agregarProcedimiento()">Agregar</button>
+        <button class="btn btn-outline" onclick="cerrarModalProcedimiento()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/atencion.js"></script>
 
 </body>
 </html>
